@@ -1,0 +1,23 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: aluguel-carros
+  datasource:
+    url: ${SUPABASE_DB_URL}
+    username: ${SUPABASE_DB_USER}
+    password: ${SUPABASE_DB_PASSWORD}
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: update
+
+app:
+  jwt:
+    secret: ${JWT_SECRET}
+    expiracao-horas: 8
+  cors:
+    allowed-origins: ${CORS_ORIGINS:http://localhost:5173}
+
+server:
+  port: 8080
